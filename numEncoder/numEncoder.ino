@@ -1,9 +1,20 @@
-void setup() {
-  // put your setup code here, to run once:
+ long userNumberDec;
+ int userNumberBin;
 
+void setup() {
+  Serial.begin(115200);
+  Serial.println("--- NUMBER ENCODER ---");
+
+ userInput();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  Serial.println(userNumberDec);
+  delay(1500);
+}
 
+void userInput() {
+  Serial.println("Please enter your number 8 digit number:\n>>>");
+  while (Serial.available() == 0) {} //Wait for user input
+  userNumberDec = Serial.parseInt();
 }
